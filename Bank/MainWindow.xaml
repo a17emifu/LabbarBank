@@ -1,0 +1,62 @@
+﻿<Window x:Class="Bank.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bank"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="850">
+    <Grid Background="#FFFBFBFB">
+        <Grid HorizontalAlignment="Left" Height="601" Margin="7,17,0,0" VerticalAlignment="Top" Width="418" Background="#FF278DC7">
+            <Label Content="Välj kund" Foreground="White" RenderTransformOrigin="-1.671,20.269" Margin="35,70,282,492" FontSize="14"/>
+            <Label Content="Kontouppgifter" Foreground="White" Margin="35,136,241,422" FontSize="14"/>
+            <Label Content="Hantera transaktioner" Foreground="White" Margin="28,241,236,324" FontSize="14"/>
+            <ComboBox x:Name="comboAccounts" RenderTransformOrigin="0.536,1.154" Margin="35,179,35,400" SelectionChanged="comboAccounts_SelectionChanged" >
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFFFF9F9" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+            </ComboBox>
+            <ComboBox x:Name="comboCustomers" RenderTransformOrigin="0.536,1.154" Margin="35,109,35,470" SelectionChanged="comboCustomers_SelectionChanged" >
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+            </ComboBox>
+            <RadioButton x:Name="rbtnDeposit" Content="Insättning" HorizontalAlignment="Left" Margin="33,277,0,0" VerticalAlignment="Top" Foreground="#FFF3E9E9" IsChecked="True" RenderTransformOrigin="0.556,-1"/>
+            <RadioButton x:Name="rbtnWithDraw" Content="Uttag" HorizontalAlignment="Left" Margin="33,297,0,0" VerticalAlignment="Top" Foreground="#FFF3E9E9"/>
+            <Label Content="Belopp:" Foreground="White" Margin="35,323,330,234"/>
+            <TextBox x:Name="boxInput" InputMethod.IsInputMethodEnabled="False"  PreviewTextInput="boxInput_PreviewTextInput" HorizontalAlignment="Left" Height="23" Margin="93,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" Text="0"/>
+            <Button Content="Ok" HorizontalAlignment="Left" Margin="292,352,0,0" VerticalAlignment="Top" Width="89" Click="Button_Click_4"/>
+            <Label Content="Kontoutdrag" Foreground="White" Margin="33,402,262,161" FontSize="14"/>
+            <ListBox x:Name="listLog" HorizontalAlignment="Left" Height="100" Margin="35,445,0,0" VerticalAlignment="Top" Width="348"/>
+            <Label Content="Bank" Foreground="White" FontSize="22" Margin="33,10,328,552"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="213" Margin="430,17,0,0" VerticalAlignment="Top" Width="387" Background="#FF278DC7">
+            <Label Content="Skapa konto" Foreground="White" Margin="38,7,238,173" FontSize="14"/>
+            <RadioButton x:Name="rbtnC" Content="Lönekonto" HorizontalAlignment="Left" Margin="40,48,0,0" VerticalAlignment="Top" Foreground="#FFF3E9E9" Checked="rbtnC_Checked" IsChecked="True"/>
+            <RadioButton x:Name="rbtnR" Content="Pensionsspar" HorizontalAlignment="Left" Margin="40,87,0,0" VerticalAlignment="Top" Foreground="#FFF3E9E9" Checked="rbtnR_Checked"/>
+            <RadioButton x:Name="rbtnS" Content="Sparkonto" HorizontalAlignment="Left" Margin="40,68,0,0" VerticalAlignment="Top" Foreground="#FFF3E9E9" Checked="rbtnS_Checked"/>
+            <Label Content="Kredit" Foreground="White" RenderTransformOrigin="-1.671,20.269" Margin="40,120,270,59"/>
+            <TextBox x:Name="boxCredit"  InputMethod.IsInputMethodEnabled="False"  PreviewTextInput="boxCredit_PreviewTextInput" HorizontalAlignment="Left" Height="24" Margin="38,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="298" Text="0"/>
+            <Button Content="Ok" HorizontalAlignment="Left" Margin="38,183,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click_3"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="388" Margin="430,230,0,0" VerticalAlignment="Top" Width="387" Background="#FF6D8D68">
+            <Label Content="Lägg till ny kund" Foreground="White" Margin="37,30,211,315" FontSize="14"/>
+            <Label Content="Förnamn" Foreground="White" RenderTransformOrigin="-1.671,20.269" Margin="37,78,268,275"/>
+            <Label Content="Telefon" Foreground="White" RenderTransformOrigin="-1.671,20.269" Margin="37,196,280,152"/>
+            <Label Content="Efternamn" Foreground="White" RenderTransformOrigin="-1.671,20.269" Margin="37,132,280,216"/>
+            <TextBox x:Name="boxFname"  HorizontalAlignment="Left" Height="24" Margin="37,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="298" Text="Emiko"/>
+            <TextBox x:Name="boxLname" HorizontalAlignment="Left" Height="24" Margin="37,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="298" Text="Johansson"/>
+            <TextBox x:Name="boxTel" InputMethod.IsInputMethodEnabled="False"  PreviewTextInput="boxTel_PreviewTextInput" HorizontalAlignment="Left" Height="24" Margin="37,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="298" Text="0739662012"/>
+
+            <Button Content="Spara" HorizontalAlignment="Left" Margin="39,264,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        </Grid>
+        <ListBox HorizontalAlignment="Left" Height="100" Margin="1050,602,-308,-33" VerticalAlignment="Top" Width="100"/>
+
+    </Grid>
+</Window>
